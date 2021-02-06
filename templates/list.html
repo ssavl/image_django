@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% for image in images %}
+    <a href="{{ image.get_absolute_url }}">Картина номер {{image.pk}}</a> <br>
+{% endfor %}
+
+{% endblock %}
