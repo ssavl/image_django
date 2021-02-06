@@ -2,11 +2,11 @@
 test task - image redactor and uploader,
 author Stepura Savelii
 
-###Setting up a virtual environment for a project
+### Setting up a virtual environment for a project
 
 > pip install -r requirement.txt
 
-###Run the project on the test server
+### Run the project on the test server
 
 > python manage.py makemigrations
 > 
@@ -14,7 +14,7 @@ author Stepura Savelii
 > 
 > python manage.py runserver
 
-###Project description:
+### Project description:
 
 The project takes the image, saves the image to the database, and allows you to resize the image in the editor.
 
