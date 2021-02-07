@@ -29,6 +29,9 @@ class ImageUploadForm(forms.Form):
             name = ''.join(random.choice(string.ascii_uppercase + string.digits) for _ in range(16))
             result = request.urlretrieve(self.cleaned_data['url'], f'{name}.jpg')
             image = File(open(result[0], 'rb'))
+            im = Image.open("audacious.png")
+            rgb_im = im.convert('RGB')
+            rgb_im.save('audacious.jpg')
         else:
             image = self.cleaned_data['image']
         return Image.objects.create(image=image)
@@ -48,4 +51,6 @@ class ImageEditForm(forms.Form):
             res['y_axis'] = int(res['x_axis'] / self.ratio)
         if not res['x_axis'] and res['y_axis']:
             res['x_axis'] = int(res['y_axis'] * self.ratio)
+        if not res['x_axis'] and not res['y_axis']:
+            raise ValidationError("Specify at least one field")
         return res
